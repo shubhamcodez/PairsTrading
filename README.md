@@ -1,4 +1,6 @@
 ## Cointegration based pairs trading strategy
+
+Notebook link: https://colab.research.google.com/gist/shubhamcodez/be3138c72b559a06d7aa385e2ed8ed83/cointegration-based-backtest.ipynb
 Overview of the project
 1. OLS Regression: Conduct an Ordinary Least Squares (OLS) regression, where the first difference of the series is regressed against its value and any differences. This aims to understand the relationship between the changes in the series and its past values. 
 
