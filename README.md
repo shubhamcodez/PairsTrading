@@ -36,8 +36,6 @@ K-means clustering of assets by mean return and volatility, verifying sector-lik
 
 ### 3. Residual Z-Scores for Entry/Exit  
 Z-score normalized residuals used for trade timing.  
-- **Blue line = residuals**  
-- **Red/Green lines = trading thresholds**  
 ![Residuals with Thresholds](https://github.com/user-attachments/assets/7bf57848-1b26-440a-b2d2-dd578af68609)  
 
 ---
