@@ -48,9 +48,9 @@ The backtest on a **portfolio of long-short pairs** shows cumulative returns and
 
 - **Capital:** $1,000,000  
 - **Weighting:** Uniform per pair
-- **Returns:** 8% 
-- **Duration:* 60 days
-- **Sharpe:** 6.198
+- **Returns:** 8% (33.6% annualized) 
+- **Duration:** 60 days
+- **Sharpe:** 5.92
 
 ---
 
