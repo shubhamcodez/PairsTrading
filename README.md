@@ -1,30 +1,82 @@
-## Cointegration based pairs trading strategy
+# Cointegration-Based Pairs Trading Strategy  
 
-### Overview of the project
-1. OLS Regression: Conduct an Ordinary Least Squares (OLS) regression, where the first difference of the series is regressed against its value and any differences. This aims to understand the relationship between the changes in the series and its past values. 
+## Project Overview  
+This project implements a **statistical arbitrage strategy** based on cointegration. The methodology identifies pairs of stocks with a long-term equilibrium relationship and exploits short-term deviations using a mean-reversion framework.  
 
-2. Augmented Dickey-Fuller: Implement the Augmented Dickey-Fuller (ADF) test to determine the test statistic. This measures the importance of the level in explaining the changes in the series. 
+### Key Steps in the Workflow  
+1. **OLS Regression**  
+   - Perform Ordinary Least Squares (OLS) regression where the first difference of the series is regressed against its value and lags.  
+   - Helps estimate residuals that represent mean-reverting deviations.  
 
-3. Trading Bounds Analysis: Determine the upper and lower trading bounds from the residuals, essential for developing a pairs trading strategy.
+2. **Augmented Dickey-Fuller (ADF) Test**  
+   - Conduct the ADF test on residuals to confirm stationarity.  
+   - Ensures that spreads are mean-reverting and thus tradable.  
 
-4. Construct a portfolio of pairs to trading the strategy. 
+3. **Trading Bounds & Z-Score Signals**  
+   - Construct residual spreads and normalize using rolling mean and standard deviation.  
 
-Universe of stocks chosen: "AAPL", "MSFT", "GOOGL", "AMZN", "NVDA", "TSLA", "META", "AVGO", "AMD", "INTC", "QCOM", "MU", "SMCI", "CRCL", "MSTR", "CRWV", "NBIS", "ORCL", "PLTR", "HOOD", "COIN", "BE", "HSAI", "CRDO", "PSIX", "DAVE", "MDB", "PANW", "OKLO", "APP"
+4. **Portfolio Construction**  
+   - **Universe:** AAPL, MSFT, GOOGL, AMZN, NVDA, TSLA, META, AVGO, AMD, INTC, QCOM, MU, SMCI, CRCL, MSTR, CRWV, NBIS, ORCL, PLTR, HOOD, COIN, BE, HSAI, CRDO, PSIX, DAVE, MDB, PANW, OKLO, APP  
+   - Stocks selected based on **trending momentum** and **sector similarity**.  
+   - **Clustering analysis** verifies co-movement of volatility and returns.  
+   - Pairs selected using **highest R²** values.  
+   - Capital = **$1,000,000**, allocated uniformly across pairs.  
 
-Thesis for universe construction: Trending stocks in similar sectors. Clustering analysis for verification that selected stocks experience similar volatility and returns. 
+---
 
-<br>
-Alloted capital: 1,000,000 <br>
-Allocation method: Uniform weighted across each pair selected based highest R2 relation with each other. 
-<br>
+## Exploratory Analysis  
 
-### Strategy performance on a portfolio of long-short pairs
-<img width="1265" height="568" alt="Cointegration Strategy - portfolio PnL" src="https://github.com/user-attachments/assets/da16c0cb-309f-4510-87bb-6c115c710d0f" />
+### 1. Hierarchical Clustering Based on Correlation  
+Groups stocks with similar correlation structures, aiding in pair selection.  
+![Hierarchical Clustering](https://github.com/user-attachments/assets/e3c8f708-be6e-439c-bafd-e30dca7665d6)  
 
-Exploratory Analysis
-1. Heirarchical Clustering based on correlation
-<img width="978" height="463" alt="Cointegration Strategy - heirarchical cluster" src="https://github.com/user-attachments/assets/e3c8f708-be6e-439c-bafd-e30dca7665d6" />
-2. Clustering based on returns and volatility
-<img width="863" height="663" alt="Cointegration Strategy - cluster" src="https://github.com/user-attachments/assets/9f706f8f-d461-4220-8b61-c0fb9bfe3847" />
-3. Z score of residuals Threshold based entry and exits
-<img width="1363" height="563" alt="Cointegration Strategy - rolling residual fit" src="https://github.com/user-attachments/assets/7bf57848-1b26-440a-b2d2-dd578af68609" />
+### 2. Clustering by Returns & Volatility  
+K-means clustering of assets by mean return and volatility, verifying sector-like behavior.  
+![Returns-Volatility Clustering](https://github.com/user-attachments/assets/9f706f8f-d461-4220-8b61-c0fb9bfe3847)  
+
+### 3. Residual Z-Scores for Entry/Exit  
+Z-score normalized residuals used for trade timing.  
+- **Blue line = residuals**  
+- **Red/Green lines = trading thresholds**  
+![Residuals with Thresholds](https://github.com/user-attachments/assets/7bf57848-1b26-440a-b2d2-dd578af68609)  
+
+---
+
+## Strategy Performance  
+
+The backtest on a **portfolio of long-short pairs** shows cumulative returns and equity curves across all trades.  
+
+![Portfolio PnL](https://github.com/user-attachments/assets/da16c0cb-309f-4510-87bb-6c115c710d0f)  
+
+- **Capital:** $1,000,000  
+- **Weighting:** Uniform per pair  
+- **Sharpe Ratio:** (To be inserted from backtest results)  
+- **Max Drawdown:** (To be inserted from backtest results)  
+- **Win Rate:** (To be inserted from trade ledger)  
+
+---
+
+## Methodology  
+
+1. **Spread Calculation**  
+   - Estimate spread using OLS regression of one stock against another.  
+
+2. **Stationarity Check**  
+   - Apply ADF to residuals to confirm mean-reversion property.  
+
+3. **Signal Generation**  
+   - Use rolling z-scores of residuals.  
+   - Enter trades when residuals deviate significantly from equilibrium.  
+
+4. **Risk Management**  
+   - Stop-loss to cap extreme divergences.  
+   - Portfolio diversification across pairs.  
+
+---
+
+## Next Steps  
+- Expand universe to ETFs and futures.  
+- Test alternative stationarity tests (Phillips-Perron, KPSS).  
+- Integrate ML models for dynamic thresholding.  
+- Explore optimal capital allocation using Kelly criterion and sharpe/risk weighted allocation
+
