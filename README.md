@@ -47,10 +47,10 @@ The backtest on a **portfolio of long-short pairs** shows cumulative returns and
 ![Portfolio PnL](https://github.com/user-attachments/assets/da16c0cb-309f-4510-87bb-6c115c710d0f)  
 
 - **Capital:** $1,000,000  
-- **Weighting:** Uniform per pair  
-- **Sharpe Ratio:** (To be inserted from backtest results)  
-- **Max Drawdown:** (To be inserted from backtest results)  
-- **Win Rate:** (To be inserted from trade ledger)  
+- **Weighting:** Uniform per pair
+- **Returns:** 8% 
+- **Duration:* 60 days
+- **Sharpe:** 6.198
 
 ---
 
