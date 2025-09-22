@@ -12,10 +12,12 @@ Notebook link: https://colab.research.google.com/gist/shubhamcodez/be3138c72b559
 Universe of stocks chosen: "AAPL", "MSFT", "GOOGL", "AMZN", "NVDA", "TSLA", "META", "AVGO", "AMD", "INTC", "QCOM", "MU", "SMCI", "CRCL", "MSTR", "CRWV", "NBIS", "ORCL", "PLTR", "HOOD", "COIN", "BE", "HSAI", "CRDO", "PSIX", "DAVE", "MDB", "PANW", "OKLO", "APP"
 
 Thesis for universe construction: Trending stocks in similar sectors. Clustering analysis for verification that selected stocks experience similar volatility and returns. 
+
 <br>
-Alloted capital: 1,000,000
+Alloted capital: 1,000,000 <br>
 Allocation method: Uniform weighted across each pair selected based highest R2 relation with each other. 
 <br>
+
 ### Strategy performance on a portfolio of long-short pairs
 <img width="1265" height="568" alt="Cointegration Strategy - portfolio PnL" src="https://github.com/user-attachments/assets/da16c0cb-309f-4510-87bb-6c115c710d0f" />
 Sharpe: 
