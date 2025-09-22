@@ -36,7 +36,7 @@ K-means clustering of assets by mean return and volatility, verifying sector-lik
 
 ### 3. Residual Z-Scores for Entry/Exit  
 Z-score normalized residuals used for trade timing.  
-![Residuals with Thresholds](https://github.com/user-attachments/assets/7bf57848-1b26-440a-b2d2-dd578af68609)  
+![Residuals with Thresholds](https://github.com/shubhamcodez/PairsTrading/blob/4cd5cd96c8b4190d46d6ae7301a2da5b99a90768/results/Cointegration%20Strategy%20-%20rolling%20residual%20fit.png)  
 
 ---
 
